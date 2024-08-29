@@ -34,4 +34,4 @@ RUN pip3 install --upgrade jax==0.3.25 jaxlib==0.3.25+cuda11.cudnn805 -f https:/
 RUN python3 -m pip install /home/evopro/alphafold/alphafold/
 RUN python3 -m pip install numpy scipy matplotlib pandas
 
-ENTRYPOINT ["python", "/home/evopro/evopro/run/run_geneticalg_gpus.py"]
+ENTRYPOINT ["conda", "run", "-n", "base"]
