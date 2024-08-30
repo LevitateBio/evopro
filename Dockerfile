@@ -1,4 +1,5 @@
 FROM nvidia/cuda:11.8.0-cudnn8-devel-ubuntu22.04
+#FROM nvidia/cuda:11.8.0-base-ubuntu22.04
 ADD evopro/ /home/evopro/evopro/ 
 RUN apt-get -y update
 RUN apt-get -y install git
@@ -34,4 +35,10 @@ RUN pip3 install --upgrade jax==0.3.25 jaxlib==0.3.25+cuda11.cudnn805 -f https:/
 RUN python3 -m pip install /home/evopro/alphafold/alphafold/
 RUN python3 -m pip install numpy scipy matplotlib pandas
 
-ENTRYPOINT ["python", "/home/evopro/evopro/run/run_geneticalg_gpus.py"]
+#ENTRYPOINT ["python", "/home/evopro/evopro/run/run_geneticalg_gpus.py"]p
+ENTRYPOINT ["conda", "run", "-n", "base"]
+
+#Debug stuff
+RUN apt-get update\
+    && apt-get install -y vim
+ADD brandonsvimrc /.vimrc

@@ -289,12 +289,6 @@ def run_genetic_alg_multistate(run_dir, af2_flags_file, score_func, startingseqs
     
     print("Number of AlphaFold2 predictions: ", num_af2)
 
-    try:
-        plotting = plot_scores_general_dev(plot, seqs_per_iteration, output_dir)
-        print("plots created at", str(plotting))
-    except:
-        print("plotting failed")
-    
     dist.spin_down()
 
 if __name__ == "__main__":
